@@ -41,7 +41,23 @@ router.post('/toys/:petId', (req, res, next) => {
 
 // PATCH -> update a toy
 // PATCH /toys/<pet_id>/<toy_id>
+router.patch('/toys/:petId/:toyId', requireToken, removeBlanks, (req, res, next) => {
+    const toyId = req.params.toyId
+    const petId = req.params.petId
 
+    Pet.findById(petId)
+        .then(handle404)
+        .then(pet => {
+            const theToy = pet.toys.id(toyId)
+            console.log('this is the original toy', theToy)
+            requireOwnership(req, pet)
+
+            theToy.set(req.body.toy)
+            return pet.save()
+        })
+        .then(() => res.sendStatus(204))
+        .catch(next)
+})
 
 // DELETE -> delete a toy
 // DELETE /toys/<pet_id>/<toy_id>
