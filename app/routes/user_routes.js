@@ -26,6 +26,7 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 // SIGN UP
+
 // POST /sign-up
 router.post('/sign-up', (req, res, next) => {
 	// start a promise chain, so that any errors will pass to `handle`
