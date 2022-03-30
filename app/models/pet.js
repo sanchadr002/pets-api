@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose')
 
+const toySchema = require('./toy')
+
 const { Schema, model } = mongoose
 
 const petSchema = new Schema(
@@ -22,11 +24,11 @@ const petSchema = new Schema(
             type: Boolean,
             required: true
         },
+        toys: [toySchema],
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User'
         }
-
     }, {
         timestamps: true,
         // we're going to add virtuals to our model
