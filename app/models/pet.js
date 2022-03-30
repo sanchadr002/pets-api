@@ -39,7 +39,6 @@ const petSchema = new Schema(
     }
 )
 
-// virtuals go here(we'll build these later)
 // a virtual is a virtual property that uses the data that's saved in the database to add a property whenever we retreive that document and convert to an object
 petSchema.virtual('fullTitle').get(function(){
     // we can do whatever JS things we want in here
