@@ -1,7 +1,7 @@
 {
   "name": "pets-api",
   "version": "1.0.0",
-  "description": "API with CRUD for pets and their subdocuments (toys)",
+  "description": "API with CRUD for pets and their subdocuments(toys)",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -16,6 +16,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "method-override": "^3.0.0",
     "mongodb": "^4.2.1",
     "mongoose": "^6.1.1",
     "passport": "^0.5.0",
